@@ -20,12 +20,11 @@ Requires:       squid
 Requires:       c-icap
 
 %description
-SquidClamav v7 is an antivirus for the Squid proxy based on the ICAP
-protocol and the awards-winning ClamAv anti-virus toolkit. Using it will
-help you securing your home or enterprise network web traffic.
-SquidClamav is the most efficient antivirus tool for HTTP traffic
-available for free, it is written in C as a c-icap service and can
-handle several thousands of connections at once.
+SquidClamav is an antivirus for the Squid proxy based on the ICAP protocol and
+the awards-winning ClamAv anti-virus toolkit. Using it will help you secure your
+home or enterprise network web traffic. SquidClamav is the most efficient
+antivirus tool for HTTP traffic available for free, it is written in C as a
+c-icap service and can handle several thousands of connections at once.
 
 %prep
 %autosetup
