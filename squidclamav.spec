@@ -1,13 +1,13 @@
 Name:           squidclamav
 Version:        7.2
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        HTTP Antivirus for Squid based on ClamAv and the ICAP protocol
 License:        GPL-1.0-or-later
 URL:            http://sourceforge.net/projects/%{name}/
 
-Source0:        http://sourceforge.net/projects/%{name}/files/%{name}/%{version}/%{name}-%{version}.tar.gz
+Source0:        https://github.com/darold/%{name}/archive/v7.2.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}-httpd.conf
-Patch0:         https://github.com/darold/squidclamav/commit/6c279b74a61507a6e2118cb8796f5647f4166ecd.patch
+Patch0:         https://github.com/darold/%{name}/commit/6c279b74a61507a6e2118cb8796f5647f4166ecd.patch
 
 BuildRequires:  c-icap-devel
 BuildRequires:  gcc
@@ -51,16 +51,19 @@ rm -rf %{buildroot}%{_datadir}/%{name}
 rm -f %{buildroot}%{_sysconfdir}/c-icap/*.default
 
 %files
-%doc AUTHORS ChangeLog NEWS README
+%doc AUTHORS ChangeLog README
 %license COPYING
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/c-icap/%{name}.conf
 %config(noreplace) %{_sysconfdir}/httpd/conf.d/%{name}.conf
 %{_libdir}/c_icap/*.so
-%config(noreplace) %{_libexecdir}/%{name}/clwarn.cgi
+%{_libexecdir}/%{name}/clwarn.cgi
 %{_datadir}/c_icap/templates/squidclamav/*
 %{_libexecdir}/%{name}/clwarn.cgi.*
 %{_mandir}/man1/%{name}.1.gz
 
 %changelog
+* Thu Sep 28 2023 Simone Caronni <negativo17@gmail.com> - 7.2-3
+- Review fixes.
+
 * Sat Aug 20 2022 Simone Caronni <negativo17@gmail.com> - 7.2-2
 - Initial import.
